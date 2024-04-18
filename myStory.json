@@ -1,0 +1,83 @@
+{
+    "Title": "Escape",
+    "Credits": "Created by Peichen Yao (pyao3@ucsc.edu).",
+    "InitialLocation": "basement",
+    "HasKey": false,  
+    "Locations": {
+        "basement": {
+            "Body": "This is basement, you can walk from the living room to most of the rooms. There is a book on the ground.",
+            "Choices": [
+                {
+                    "Text": "Open the book",
+                    "Target": "book"
+                },
+                {
+                    "Text": "Go upstairs",
+                    "Target": "livingRoom"
+                }
+            ]
+        },
+
+        "book": {
+            "Body": "The book says there's a key to the gate in the bedroom cabinets.",
+            "Choices": [
+                {
+                    "Text": "Close the book",
+                    "Target": "basement"
+                }
+            ]
+        },
+
+        "livingRoom": {
+            "Body": "This is living room, you can walk from the living room to most of the rooms. Also there is a gate here.",
+            "Choices": [
+                {
+                    "Text": "upstairs",
+                    "Target": "bedroom"
+                    
+                },
+                {
+                    "Text": "downstairs",
+                    "Target": "basement"
+                }
+            ],
+
+            "ChoicesGate": [
+                {
+                    "Text": "Use the key to open the gate.",
+                    "Target": "gate",
+                    "RequiresKey": true 
+                }
+            ]
+        },
+        "bedroom": {
+            "Body": "This is the bedroom. There are several cabinets in the bedroom",
+            "Choices": [
+                {
+                    "Text": "Open the cabinets",
+                    "Target": "key",
+                    "RequiresHandle": true
+                },
+                {
+                    "Text": "Go back downstairs",
+                    "Target": "livingRoom"
+                }
+            ]
+        },
+        "key": {
+            "Body": "You found a key! It might be useful to open the gate.",
+            "OnAcquire": {
+                "HasKey": true
+            },
+            "Choices": [
+                {
+                    "Text": "Take the key and go downstairs",
+                    "Target": "livingRoom"
+                }
+            ]
+        },
+        "gate": {
+            "Body": "Congrats! You made it out."
+        }
+    }
+}
